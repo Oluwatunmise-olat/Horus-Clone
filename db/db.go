@@ -90,9 +90,15 @@ func (s *Store) PerformInsert(data *types.RequestLogger) error {
 
 func (s *Store) GetLogs(limit *int, method string) []*types.RequestLogger {
 	var Limit = 20
+
 	if (limit != nil) {
 		Limit = *limit
 	}
+
+	if (method == "") {
+		method = "%" // Look at all records instead of record that matches empty string
+	}
+
 	records, err := s.DBInstance.Query("SELECT request_body, request_path, request_headers, request_method, request_host, response_body, response_status, req_res_time FROM request_logger WHERE request_method LIKE ? ORDER BY request_logger.id DESC LIMIT ?", method, Limit)
 	
 	if err != nil {
