@@ -17,7 +17,7 @@ Clone of horus request logger created by `ichtrojon` with a twist 🔀. [horus](
 	  "log"
     "net/http"
 	  db "github.com/Oluwatunmise-olat/Horus-Clone/db"
-    "github.com/Oluwatunmise-olat/Horus-Clone/clone"
+    clone "github.com/Oluwatunmise-olat/Horus-Clone"
   )
 
   func main(){
